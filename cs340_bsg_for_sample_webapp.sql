@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+-- ##############################
+--          Customers
+-- ##############################
+DROP TABLE IF EXISTS `customers`;
+CREATE TABLE `customers` (
+    `customer_ID` INT AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
+    `customer_first_name` varchar(255) NOT NULL,
+    `customer_last_name` varchar(255) NOT NULL,
+    `customer_email` varchar(255) NOT NULL,
+    `customer_phone_number` varchar(64) NOT NULL,
+    `customer_address` varchar(255) NOT NULL,
+    `customer_birthdate` date NOT NULL
+);
+
+
 --
 -- Table structure for table `bsg_cert`
 --
