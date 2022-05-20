@@ -37,6 +37,7 @@
 <h3>Current people:</h3>
 <table>
     <thead> 
+        <th>order_number</th> 
         <th>product_ID</th> 
         <th>quantity</th> 
         <th>selling_price</th>
@@ -45,7 +46,8 @@
     </thead> 
     <tbody>
         {{#each people}} 
-        <tr> 
+        <tr>
+            <td>{{order_number}}</td>  
             <td>{{product_ID}}</td> 
             <td>{{quantity}}</td> 
             <td>{{selling_price}}</td> 

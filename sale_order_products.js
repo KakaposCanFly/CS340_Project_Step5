@@ -13,7 +13,7 @@ module.exports = function(){
         });
     }
 
-    function getCustomers(res, mysql, context, complete){
+    function getSaleOrderProducts(res, mysql, context, complete){
         mysql.pool.query("SELECT * FROM sale_order_products", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
@@ -74,12 +74,12 @@ module.exports = function(){
         var context = {};
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
-        getCustomers(res, mysql, context, complete);
+        getSaleOrderProducts(res, mysql, context, complete);
         getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('customers', context);
+                res.render('sale_order_products', context);
             }
 
         }

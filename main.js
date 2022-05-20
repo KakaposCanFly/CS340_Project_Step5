@@ -23,6 +23,7 @@ app.use('/customers', require('./customers.js'));
 app.use('/distributors', require('./distributors.js'));
 app.use('/products', require('./products.js'));
 app.use('/sale_orders', require('./sale_orders.js'));
+app.use('/sale_order_products', require('./sale_order_products.js'));
 app.use('/planets', require('./planets.js'));
 app.use('/', express.static('public'));
 
