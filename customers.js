@@ -13,7 +13,7 @@ module.exports = function(){
         });
     }
 
-    function getPeople(res, mysql, context, complete){
+    function getCustomers(res, mysql, context, complete){
         mysql.pool.query("SELECT * FROM customers", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
@@ -74,7 +74,7 @@ module.exports = function(){
         var context = {};
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
-        getPeople(res, mysql, context, complete);
+        getCustomers(res, mysql, context, complete);
         getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;

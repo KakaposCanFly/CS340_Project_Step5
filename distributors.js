@@ -13,8 +13,8 @@ module.exports = function(){
         });
     }
 
-    function getProducts(res, mysql, context, complete){
-        mysql.pool.query("SELECT * FROM products", function(error, results, fields){
+    function getDistributors(res, mysql, context, complete){
+        mysql.pool.query("SELECT * FROM distributors", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
@@ -74,12 +74,12 @@ module.exports = function(){
         var context = {};
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
-        getProducts(res, mysql, context, complete);
+        getDistributors(res, mysql, context, complete);
         getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('products', context);
+                res.render('distributors', context);
             }
 
         }
@@ -96,7 +96,7 @@ module.exports = function(){
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('products', context);
+                res.render('distributors', context);
             }
 
         }
@@ -113,7 +113,7 @@ module.exports = function(){
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('products', context);
+                res.render('distributors', context);
             }
         }
     });
@@ -150,7 +150,7 @@ module.exports = function(){
                 res.write(JSON.stringify(error));
                 res.end();
             }else{
-                res.redirect('/products');
+                res.redirect('/distributors');
             }
         });
     });
