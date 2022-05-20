@@ -35,17 +35,16 @@
         </tr> 
         {{/each}} 
     </tbody> 
-</table> 
-
+</table>
 
 
 <h3> Add new distributor: </h3>
-<form>
-    <input type="text" id="dname" name="dname" placeholder="Distributor Name"><br>
-    <input type="text" id="address" name="address" placeholder="Distributor Address"><br>
-    <input type="text" id="email" name="email" placeholder="Distributor Email"><br>
-    <input type="text" id="dphone" name="dphone" placeholder="Distributor Phone #"><br>
-    <input type="text" id="dcontact" name="dcontact" placeholder="Distributor Contact"><br>
+<form id="adddistributor" action="/distributors" method="post">
+    <input type="text" id="dname" name="distributor_name" placeholder="Distributor Name"><br>
+    <input type="text" id="address" name="distributor_address" placeholder="Distributor Address"><br>
+    <input type="text" id="email" name="distributor_email" placeholder="Distributor Email"><br>
+    <input type="text" id="dphone" name="distributor_phone" placeholder="Distributor Phone #"><br>
+    <input type="text" id="dcontact" name="distributor_contact_person" placeholder="Distributor Contact"><br>
     <input type="submit" value="Add"><br><br>
     <input type="text" id="d_id" name="d_id" placeholder="Distributor ID">
     <br><input type="submit" value="Update">

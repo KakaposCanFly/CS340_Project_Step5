@@ -66,7 +66,8 @@ CREATE TABLE `sale_orders` (
     `order_date` date NOT NULL,
     `cc_number` varchar(255) NOT NULL,
     `cc_exp_date` date NOT NULL,
-    `order_complete` boolean NOT NULL
+    `delivery_status` varchar(32) NOT NULL,
+    `paid_status` varchar(32) NOT NULL
 );
 
 DROP TABLE IF EXISTS `sale_order_products`;
@@ -75,7 +76,7 @@ CREATE TABLE `sale_order_products` (
     `product_ID` int(16) NOT NULL,
     `quantity` int(16) NOT NULL,
     `selling_price` decimal(16,2),
-    `shipped` boolean NOT NULL,
+    `shipping_status` varchar(16) NOT NULL,
     `shipping_date` date NOT NULL,
     FOREIGN KEY (`order_number`) REFERENCES `sale_orders` (`order_number`),
     FOREIGN KEY (`product_ID`) REFERENCES `products` (`product_ID`),
@@ -102,15 +103,15 @@ INSERT INTO products (product_ID,product_type,product_name,distributor_ID,retail
     ('3','hat','Magician''s Tophat','04446','49.99','1990/04/26','7'),
     ('4','poncho','Unparalleled Comfort','	03002','79.99','1990/04/26','22');
 
-INSERT INTO sale_orders(order_number, customer_ID, order_date, cc_number, cc_exp_date, order_complete) VALUES 
-    ('1','12','1984/01/19','12982918478729781','1990/04/15','1'),
-    ('2','13','1984/01/19','12688918478829784','1990/04/15','1'),
-    ('3','14','1984/01/19','75688912478829883','1990/04/15','0');
+INSERT INTO sale_orders(order_number, customer_ID, order_date, cc_number, cc_exp_date, delivery_status, paid_status) VALUES 
+    ('1','12','1984/01/19','12982918478729781','1990/04/15','Delivered', 'Paid'),
+    ('2','13','1984/01/19','12688918478829784','1990/04/15','Delivered', 'Not Paid'),
+    ('3','14','1984/01/19','75688912478829883','1990/04/15','Not Delivered', 'Paid');
 
-INSERT INTO sale_order_products(order_number,product_ID,quantity,selling_price,shipped,shipping_date) VALUES 
-     ('1','1','900','419.99','1','1984/01/19'),
-     ('2','2','1045','11.99','0','1984/01/19'),
-     ('3','3','2000','49.99','1','1984/01/19');
+INSERT INTO sale_order_products(order_number,product_ID,quantity,selling_price,shipping_status,shipping_date) VALUES 
+     ('1','1','900','419.99','Shipped','1984/01/19'),
+     ('2','2','1045','11.99','Not Shipped','1984/01/19'),
+     ('3','3','2000','49.99','Shipped','1984/01/19');
 
 
 
