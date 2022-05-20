@@ -2,19 +2,6 @@
 {{#each foo}}
 {{this}}
 {{/each}}
-<h3>Add new people:</h3>
-<form id="addperson" action="/people" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    Homeworld: <select name="homeworld"> 
-        {{#each planets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select><br>
-    Age: <input type="number" name="age"><br>
-    <input type="submit" value="Submit">
- </form>
-<br/>
 
 <form id='filter_people' action='' method=''>
 <!--- this form does not submit directly, the button handles all the interaction with backend -->
@@ -59,4 +46,21 @@
         {{/each}} 
     </tbody> 
 </table> 
+
+<h3>Add new people:</h3>
+<form id="addperson" action="/people" method="post">
+    <input type="text" id="fname" name="fname" placeholder="First Name"><br>
+    <input type="text" id="lname" name="lname" placeholder="Last Name"><br>
+    <input type="text" id="cemail" name="cemail" placeholder="Email"><br>
+    <input type="text" id="cphone" name="cphone" placeholder="Phone #"><br>
+    <input type="text" id="caddress" name="caddress" placeholder="Address"><br>
+    <label for="bdate">Birthday:</label>
+    <input type="date" id="bdate" name="bdate" value="YYYY-MM-DD"><br>
+    <input type="submit" value="Add"><br><br>
+    <input type="text" id="cid" name="cid" placeholder="Customer ID">
+    <br><input type="submit" value="Update">
+ </form>
+<br/>
+
+
 </html>
