@@ -2,30 +2,15 @@
 {{#each foo}}
 {{this}}
 {{/each}}
-<h3>Add new people:</h3>
-<form id="addperson" action="/people" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    Homeworld: <select name="homeworld"> 
-        {{#each planets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select><br>
-    Age: <input type="number" name="age"><br>
-    <input type="submit" value="Submit">
- </form>
-<br/>
-
-<form id='filter_people' action='' method=''>
-<!--- this form does not submit directly, the button handles all the interaction with backend -->
-    <label> Filter by homeworld </label>
-    <select id='homeworld_filter' name="homeworld"> 
-        {{#each planets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select><br>
-    <input type="button" value="Filter" onclick="filterPeopleByHomeworld()">
-</form>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<div class="topnav">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li> <a href='/customers'>Customers</a></li>
+    <li> <a href='/distributors'>Distributors</a></li>
+    <li> <a href='/products'>Products</a></li>
+    <li> <a href='/sale_orders'>Sale Orders</a></li>
+    <li> <a href='/sale_order_products'>Sale Order Products</a></li>
+  </div>
 
 <form id='search_people' action='' method=''>
 <!--- this form does not submit directly, the button handles all the interaction with backend -->
