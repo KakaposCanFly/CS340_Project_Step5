@@ -92,7 +92,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeoplebyHomeworld(req,res, mysql, context, complete);
-        /*getPlanets(res, mysql, context, complete);*/
+        getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
