@@ -1,3 +1,5 @@
-# CS290-Server-Side-Examples
+# Quality Threads Project Step 5
 
-This sample application requires the database dump **bsg_db.sql** to be setup *before* you can run the application. This is different from the database dump you used in other weeks of the CS340 class.
+This draft webpage requires the database dump **qthreads.sql** to be setup *before* you can run the application. This involves filling in the dbcon.js file with your own MariaDB info.
+
+Once the qthreads.sql database is setup, run `npm install` and `node main.js {port number}` on flipX, and use the URL: `https://flipX.engr.oregonstate.edu:{port number}` to interact with the webpage.
