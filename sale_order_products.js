@@ -96,7 +96,7 @@ module.exports = function(){
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('customers', context);
+                res.render('sale_order_products', context);
             }
 
         }
@@ -113,7 +113,7 @@ module.exports = function(){
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('customers', context);
+                res.render('sale_order_products', context);
             }
         }
     });
@@ -142,15 +142,15 @@ module.exports = function(){
         console.log(req.body.homeworld)
         console.log(req.body)
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES (?,?,?,?)";
-        var inserts = [req.body.fname, req.body.lname, req.body.homeworld, req.body.age];
+        var sql = "INSERT INTO sale_order_products (order_number, product_ID, quantity, selling_price, shipping_status, shipping_date) VALUES (?,?,?,?,?,?)";
+        var inserts = [req.body.order_number, req.body.product_ID, req.body.quantity, req.body.selling_price, req.body.shipping_status, req.body.shipping_date];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(JSON.stringify(error))
                 res.write(JSON.stringify(error));
                 res.end();
             }else{
-                res.redirect('/customers');
+                res.redirect('/sale_order_products');
             }
         });
     });

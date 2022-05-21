@@ -13,7 +13,7 @@
     <li> <a href='/sale_order_products'>Sale Order Products</a></li>
   </div>
 
-<h3>Current people:</h3>
+<h3>Distributors</h3>
 <table>
     <thead> 
         <th>distributor_name</th> 
@@ -39,15 +39,13 @@
 
 
 <h3> Add new distributor: </h3>
-<form id="adddistributor" action="/distributors" method="post">
+<form id="add_distributor" action="/distributors" method="post">
     <input type="text" id="dname" name="distributor_name" placeholder="Distributor Name"><br>
     <input type="text" id="address" name="distributor_address" placeholder="Distributor Address"><br>
     <input type="text" id="email" name="distributor_email" placeholder="Distributor Email"><br>
     <input type="text" id="dphone" name="distributor_phone" placeholder="Distributor Phone #"><br>
     <input type="text" id="dcontact" name="distributor_contact_person" placeholder="Distributor Contact"><br>
     <input type="submit" value="Add"><br><br>
-    <input type="text" id="d_id" name="d_id" placeholder="Distributor ID">
-    <br><input type="submit" value="Update">
   </form>
   <br/>
 </html>

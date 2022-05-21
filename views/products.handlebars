@@ -12,7 +12,7 @@
     <li> <a href='/sale_order_products'>Sale Order Products</a></li>
   </div>
 
-<h3>Current people:</h3>
+<h3>Products</h3>
 <table>
     <thead> 
         <th>product_type</th> 
@@ -39,17 +39,15 @@
 </table> 
 
 <h3>Add new product:</h3>
-<form>
-    <input type="text" id="type" name="type" placeholder="Produt type"><br>
+<form id="add_product" action="/products" method="post">
+    <input type="text" id="product_type" name="product_type" placeholder="Product type"><br>
     <input type="text" id="product_name" name="product_name" placeholder="Product name"><br>
-    <input type="text" id="d_id" name="d_id" placeholder="Distributor ID"><br>
+    <input type="text" id="distributor_ID" name="distributor_ID" placeholder="Distributor ID"><br>
     <input type="text" id="retail_price" name="retail_price" placeholder="Retail Price"><br>
     <input type="text" id="quant_in_stock" name="quant_in_stock" placeholder="Quantity in Stock"><br>
     <label for="pdate">Release Date:</label>
-    <input type="date" id="pdate" name="pdate" value="2018-07-22"><br>
+    <input type="date" id="release_date" name="release_date" value="2018-07-22"><br>
     <input type="submit" value="Add"><br><br>
-    <input type="text" id="pid" name="pid" placeholder="Product ID">
-    <br><input type="submit" value="Update">
   </form>
 <br/>
 </html>

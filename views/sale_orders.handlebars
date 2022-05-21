@@ -12,7 +12,7 @@
     <li> <a href='/sale_order_products'>Sale Order Products</a></li>
   </div>
 
-<h3>Current people:</h3>
+<h3>Sale Orders</h3>
 <table>
     <thead> 
         <th>customer_ID</th> 
@@ -38,11 +38,12 @@
     </tbody> 
 </table> 
 
-<h3>Add new people:</h3>
-<form id="addperson" action="/people" method="post">
+<h3>Add new sale order:</h3>
+<form id="add_sale_order" action="/sale_orders" method="post">
     <input type="text" id="customer_ID" name="customer_ID" placeholder="Customer ID"><br>
     <input type="text" id="cc_number" name="cc_number" placeholder="Credit Card Number"><br>
-    <input type="text" id="cc_exp_date" name="cc_exp_date" placeholder="Credit Crad Exp Date"><br>
+    <label for="bdate">Credit Card Expiration Date:</label>
+    <input type="date" id="cc_exp_date" name="cc_exp_date" value="YYYY-MM-DD"><br>
     <label for="delivery_status">Delivery Status:</label>
       <select name="delivery_status" id="order_complete">
         <option value="delivered">Delivered</option>
@@ -50,12 +51,10 @@
       </select><br>
     <label for="paid_status">Delivery Status:</label>
       <select name="paid_status" id="paid_status">
-        <option value="paid">Paid</option>
-        <option value="not_paid">Not Paid</option>
+        <option value="Paid">Paid</option>
+        <option value="Not Paid">Not Paid</option>
       </select><br>
     <input type="submit" value="Add"><br><br>
-    <input type="text" id="ord_num" name="ord_num" placeholder="order_number">
-    <br><input type="submit" value="Update">
  </form>
 <br/>
 

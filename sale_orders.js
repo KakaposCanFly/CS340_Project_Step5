@@ -142,8 +142,8 @@ module.exports = function(){
         console.log(req.body.homeworld)
         console.log(req.body)
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES (?,?,?,?)";
-        var inserts = [req.body.fname, req.body.lname, req.body.homeworld, req.body.age];
+        var sql = "INSERT INTO sale_orders (customer_ID, cc_number, cc_exp_date, delivery_status, paid_status) VALUES (?,?,?,?,?)";
+        var inserts = [req.body.customer_ID, req.body.cc_number, req.body.cc_exp_date, req.body.delivery_status, req.body.paid_status];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(JSON.stringify(error))

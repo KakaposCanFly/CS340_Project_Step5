@@ -13,7 +13,7 @@
     <li> <a href='/sale_order_products'>Sale Order Products</a></li>
   </div>
 
-<h3>Current people:</h3>
+<h3>Sale Order Products</h3>
 <table>
     <thead> 
         <th>order_number</th> 
@@ -39,21 +39,20 @@
     </tbody> 
 </table> 
 
-<h3>Add new people:</h3>
-<form id="addperson" action="/people" method="post">
-    <input type="text" id="order_num_PK" name="order_num_PK" placeholder="Order Number"><br>
-    <input type="text" id="product_ID_PK" name="product_ID_PK" placeholder="Product ID"><br>
+<h3>Add new sale order product</h3>
+<form id="add_sale_order_product" action="/sale_order_products" method="post">
+    <input type="text" id="order_number" name="order_number" placeholder="Order Number"><br>
+    <input type="text" id="product_ID" name="product_ID" placeholder="Product ID"><br>
     <input type="text" id="quantity" name="quantity" placeholder="Quantity"><br>
     <input type="number" step="0.01" id="selling_price" name="selling_price" placeholder="Selling Price"><br>
     <label for="shipping_status">Shipped:</label>
-      <select name="shipping_status" id="sent_out">
+      <select name="shipping_status" id="shipping_status">
         <option value="shipped">Shipped</option>
         <option value="not_shipped">Not Shipped</option>
       </select><br>
-    <label for="sdate">Shipping Date:</label>
-    <input type="date" id="sdate" name="sdate" value="2018-07-22"><br>
+    <label for="shipping_date">Shipping Date:</label>
+    <input type="date" id="shipping_date" name="shipping_date" value="YYYY-MM-DD"><br>
     <input type="submit" value="Add"><br><br>
-    <br><input type="submit" value="Update">
  </form>
 <br/>
 

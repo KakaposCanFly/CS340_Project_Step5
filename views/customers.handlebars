@@ -13,7 +13,7 @@
     <li> <a href='/sale_order_products'>Sale Order Products</a></li>
   </div>
 
-<h3>Current people:</h3>
+<h3>Customers</h3>
 <table>
     <thead> 
         <th>customer_first_name</th> 
@@ -39,8 +39,8 @@
     </tbody> 
 </table> 
 
-<h3>Add new people:</h3>
-<form id="addperson" action="/customers" method="post">
+<h3>Add new customer:</h3>
+<form id="add_customer" action="/customers" method="post">
     <input type="text" id="fname" name="customer_first_name" placeholder="First Name"><br>
     <input type="text" id="lname" name="customer_last_name" placeholder="Last Name"><br>
     <input type="text" id="cemail" name="customer_email" placeholder="Email"><br>
@@ -49,8 +49,6 @@
     <label for="bdate">Birthday:</label>
     <input type="date" id="bdate" name="customer_birthdate" value="YYYY-MM-DD"><br>
     <input type="submit" value="Add"><br><br>
-    <input type="text" id="cid" name="cid" placeholder="Customer ID">
-    <br><input type="submit" value="Update">
  </form>
 <br/>
 
