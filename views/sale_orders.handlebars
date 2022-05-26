@@ -15,6 +15,7 @@
 <h3>Sale Orders</h3>
 <table>
     <thead> 
+        <th>order_number</th>
         <th>customer_ID</th> 
         <th>order_date</th> 
         <th>cc_number</th>
@@ -25,14 +26,15 @@
     <tbody>
         {{#each people}} 
         <tr> 
+            <td>{{order_number}}</td>
             <td>{{customer_ID}}</td> 
             <td>{{order_date}}</td> 
             <td>{{cc_number}}</td> 
             <td>{{cc_exp_date}}</td>
             <td>{{delivery_status}}</td>
             <td>{{paid_status}}</td>
-            <td><button onclick="deletePerson({{id}})">Delete</button></td>
-            <td><a href="/people/{{id}}">Update</a></td>
+            <td><button onclick="deleteSale_Order({{order_number}})">Delete</button></td>
+            <td><a href="/sale_orders/{{order_number}}">Update</a></td>
         </tr> 
         {{/each}} 
     </tbody> 
