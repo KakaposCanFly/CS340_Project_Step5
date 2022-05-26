@@ -179,7 +179,7 @@ module.exports = function(){
 
     router.delete('/:id', function(req, res){
         var mysql = req.app.get('mysql');
-        var sql = "DELETE FROM bsg_people WHERE character_id = ?";
+        var sql = "DELETE FROM customers WHERE customer_id = ?";
         var inserts = [req.params.id];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
