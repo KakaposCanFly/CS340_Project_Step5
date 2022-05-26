@@ -15,6 +15,7 @@
 <h3>Products</h3>
 <table>
     <thead> 
+        <th>product_ID</th> 
         <th>product_type</th> 
         <th>product_name</th> 
         <th>distributor_ID</th>
@@ -25,13 +26,14 @@
     <tbody>
         {{#each people}} 
         <tr> 
+            <td>{{product_ID}}</td>
             <td>{{product_type}}</td> 
             <td>{{product_name}}</td> 
             <td>{{distributor_ID}}</td> 
             <td>{{retail_price}}</td>
             <td>{{release_date}}</td>
             <td>{{quant_in_stock}}</td>
-            <td><button onclick="deletePerson({{id}})">Delete</button></td>
+            <td><button onclick="deleteProduct({{product_ID}})">Delete</button></td>
             <td><a href="/people/{{id}}">Update</a></td>
         </tr> 
         {{/each}} 
