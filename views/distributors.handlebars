@@ -16,6 +16,7 @@
 <h3>Distributors</h3>
 <table>
     <thead> 
+        <th>distributor_ID</th>
         <th>distributor_name</th> 
         <th>distributor_address</th> 
         <th>distributor_email</th>
@@ -25,13 +26,14 @@
     <tbody>
         {{#each people}} 
         <tr> 
+            <td>{{distributor_ID}}</td>
             <td>{{distributor_name}}</td> 
             <td>{{distributor_address}}</td> 
             <td>{{distributor_email}}</td> 
             <td>{{distributor_phone}}</td>
             <td>{{distributor_contact_person}}</td>
-            <td><button onclick="deletePerson({{id}})">Delete</button></td>
-            <td><a href="/people/{{id}}">Update</a></td>
+            <td><button onclick="deleteDistributor({{distributor_ID}})">Delete</button></td>
+            <td><a href="/distributors/{{id}}">Update</a></td>
         </tr> 
         {{/each}} 
     </tbody> 
