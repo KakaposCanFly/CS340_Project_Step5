@@ -24,7 +24,7 @@
         <th>customer_birthdate</th>  
     </thead> 
     <tbody>
-        {{#each people}} 
+        {{#each customers}} 
         <tr> 
             <td>{{customer_first_name}}</td> 
             <td>{{customer_last_name}}</td> 
@@ -33,7 +33,7 @@
             <td>{{customer_address}}</td>
             <td>{{customer_birthdate}}</td>
             <td><button onclick="deletePerson({{id}})">Delete</button></td>
-            <td><a href="/people/{{id}}">Update</a></td>
+            <td><a href="/customers/{{id}}">Update</a></td>
         </tr> 
         {{/each}} 
     </tbody> 
