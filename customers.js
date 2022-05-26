@@ -72,7 +72,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
+        context.jsscripts = ["deletecustomer.js"];
         var mysql = req.app.get('mysql');
         getCustomers(res, mysql, context, complete);
         getPlanets(res, mysql, context, complete);
@@ -179,7 +179,7 @@ module.exports = function(){
 
     router.delete('/:id', function(req, res){
         var mysql = req.app.get('mysql');
-        var sql = "DELETE FROM customers WHERE customer_id = ?";
+        var sql = "DELETE FROM customers WHERE customer_ID = ?";
         var inserts = [req.params.id];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
