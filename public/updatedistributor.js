@@ -4,7 +4,7 @@ function updateDistributors(id){
         type: 'PUT',
         data: $('#update-distributor').serialize(),
         success: function(result){
-            window.location.replace("./");
+            window.location.replace("../distributors");
         }
     })
 };

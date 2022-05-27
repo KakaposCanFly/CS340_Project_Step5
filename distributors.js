@@ -162,7 +162,7 @@ module.exports = function(){
         console.log(req.body)
         console.log(req.params.id)
         var sql = "UPDATE distributors SET distributor_name=?, distributor_address=?, distributor_email=?, distributor_phone=?, distributor_contact_person=? WHERE distributor_ID=?";
-        var inserts = [req.body.distributor_name, req.body.distributor_address, req.body.distributor_email, req.body.distributor_phone, req.params.distributor_contact_person, req.params.id];
+        var inserts = [req.body.distributor_name, req.body.distributor_address, req.body.distributor_email, req.body.distributor_phone, req.body.distributor_contact_person, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
