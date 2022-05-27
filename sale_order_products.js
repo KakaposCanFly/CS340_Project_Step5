@@ -2,13 +2,24 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getPlanets(res, mysql, context, complete){
-        mysql.pool.query("SELECT planet_id as id, name FROM bsg_planets", function(error, results, fields){
+    function getSale_Orders(res, mysql, context, complete){
+        mysql.pool.query("SELECT order_number FROM sale_orders", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.planets  = results;
+            context.sale_orders  = results;
+            complete();
+        });
+    }
+
+    function getProducts(res, mysql, context, complete){
+        mysql.pool.query("SELECT product_ID as id, product_name as name FROM products", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.products  = results;
             complete();
         });
     }
@@ -75,10 +86,11 @@ module.exports = function(){
         context.jsscripts = ["deletesale_order_product.js"];
         var mysql = req.app.get('mysql');
         getSaleOrderProducts(res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getSale_Orders(res, mysql, context, complete);
+        getProducts(res, mysql, context, complete);
         function complete(){
             callbackCount++;
-            if(callbackCount >= 2){
+            if(callbackCount >= 3){
                 res.render('sale_order_products', context);
             }
 
@@ -92,7 +104,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeoplebyHomeworld(req,res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getSale_Orders(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -109,7 +121,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeopleWithNameLike(req, res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getSale_Orders(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -126,7 +138,7 @@ module.exports = function(){
         context.jsscripts = ["selectedplanet.js", "updateperson.js"];
         var mysql = req.app.get('mysql');
         getPerson(res, mysql, context, req.params.id, complete);
-        getPlanets(res, mysql, context, complete);
+        getSale_Orders(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
