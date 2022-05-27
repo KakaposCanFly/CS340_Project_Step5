@@ -72,7 +72,7 @@ module.exports = function(){
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["deletesale_order_products.js"];
+        context.jsscripts = ["deletesale_order_product.js"];
         var mysql = req.app.get('mysql');
         getSaleOrderProducts(res, mysql, context, complete);
         getPlanets(res, mysql, context, complete);
@@ -177,10 +177,10 @@ module.exports = function(){
 
     /* Route to delete a person, simply returns a 202 upon success. Ajax will handle this. */
 
-    router.delete('/:ordnum:pid', function(req, res){
+    router.delete('/ordnum/:ordnum/pid/:pid', function(req, res){
         var mysql = req.app.get('mysql');
         var sql = "DELETE FROM sale_order_products WHERE order_number = ? AND product_ID = ?";
-        var inserts = [req.params.id];
+        var inserts = [req.params.ordnum, req.params.pid];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 console.log(error)
