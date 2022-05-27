@@ -25,7 +25,7 @@ module.exports = function(){
     }
     
      function getSaleOrderProductsID(res, mysql, context, complete){
-        mysql.pool.query("SELECT *, row_number() over(order by id) as serial FROM sale_order_products", function(error, results, fields){
+        mysql.pool.query("SELECT *, row_number() over(order by product_ID) as serial FROM sale_order_products", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();

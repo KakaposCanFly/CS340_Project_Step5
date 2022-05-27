@@ -1,0 +1,11 @@
+<html>
+<h1>Update {{distributor.distributor_name}}:</h1>
+<form id="update-distributor" action="/distributors" method="post">
+    Name: <input type="text" name="distributor_name" value="{{distributor.distributor_name}}"><br>
+    Address: <input type="text" name="distributor_address" value="{{distributor.distributor_address}}"><br>
+    Email: <input type="text" name="distributor_email" value="{{distributor.distributor_email}}"><br>
+    Phone: <input type="text" name="distributor_phone" value="{{distributor.distributor_phone}}"><br>
+    Contact person: <input type="text" name="distributor_contact_distributor" value="{{distributor.distributor_contact_person}}"><br>
+</form>
+<button onclick="updateDistributors({{distributor.id}})">Update</button>
+</html>
