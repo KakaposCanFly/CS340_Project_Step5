@@ -5,8 +5,14 @@
     Order Date: <input type="date" name="order_date" value="{{sale_order.order_date}}"><br>
     Credit Card #: <input type="text" name="cc_number" value="{{sale_order.cc_number}}"><br>
     Credit Card Expiration Date: <input type="date" name="cc_exp_date" value="{{sale_order.cc_exp_date}}"><br>
-    Delivery Status: <input type="text" name="delivery_status" value="{{sale_order.delivery_status}}"><br>
-    Paid Status: <input type="text" name="paid_status" value="{{sale_order.paid_status}}"><br>
+    Delivery Status: <select name="delivery_status">
+        <option value = "Delivered">Delivered</option>
+        <option value = "Not Devliered">Not Delivered</option>
+    </select><br>
+    Paid Status: <select name="paid_status">
+        <option value = "Paid">Paid</option>
+        <option value = "Not Paid">Not Paid</option>
+    </select><br>
 </form>
 <button onclick="updateSale_Orders({{sale_order.order_number}})">Update</button>
 </html>
