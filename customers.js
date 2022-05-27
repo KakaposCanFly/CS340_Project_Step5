@@ -54,15 +54,15 @@ module.exports = function(){
         });
     }
 
-    function getPerson(res, mysql, context, id, complete){
-        var sql = "SELECT character_id as id, fname, lname, homeworld, age FROM bsg_people WHERE character_id = ?";
+    function getCustomer(res, mysql, context, id, complete){
+        var sql = "SELECT * FROM customers WHERE customer_ID = ?";
         var inserts = [id];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.person = results[0];
+            context.customer = results[0];
             complete();
         });
     }
@@ -123,14 +123,14 @@ module.exports = function(){
     router.get('/:id', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["selectedplanet.js", "updatecustomer.js"];
+        context.jsscripts = ["updatecustomer.js"];
         var mysql = req.app.get('mysql');
-        getPerson(res, mysql, context, req.params.id, complete);
+        getCustomer(res, mysql, context, req.params.id, complete);
         getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('update-person', context);
+                res.render('update-customer', context);
             }
 
         }
@@ -161,8 +161,8 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         console.log(req.params.id)
-        var sql = "UPDATE bsg_people SET fname=?, lname=?, homeworld=?, age=? WHERE character_id=?";
-        var inserts = [req.body.fname, req.body.lname, req.body.homeworld, req.body.age, req.params.id];
+        var sql = "UPDATE customers SET customer_first_name=?, customer_last_name=?, customer_email=?, customer_phone_number=?, customer_address=?, customer_birthdate=? WHERE customer_ID=?";
+        var inserts = [req.body.customer_first_name, req.body.customer_last_name, req.body.customer_email, req.body.customer_phone_number, req.body.customer_address, req.body.customer_birthdate, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
