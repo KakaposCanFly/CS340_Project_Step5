@@ -44,11 +44,16 @@
 <form id="add_product" action="/products" method="post">
     <input type="text" id="product_type" name="product_type" placeholder="Product type"><br>
     <input type="text" id="product_name" name="product_name" placeholder="Product name"><br>
-    <input type="text" id="distributor_ID" name="distributor_ID" placeholder="Distributor ID"><br>
+    {{!-- <input type="text" id="distributor_ID" name="distributor_ID" placeholder="Distributor ID"><br> --}}
     <input type="text" id="retail_price" name="retail_price" placeholder="Retail Price"><br>
     <input type="text" id="quant_in_stock" name="quant_in_stock" placeholder="Quantity in Stock"><br>
     <label for="pdate">Release Date:</label>
     <input type="date" id="release_date" name="release_date" value="2018-07-22"><br>
+    Distributor: <select name="distributor_ID">
+        {{#each distributors}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
     <input type="submit" value="Add"><br><br>
   </form>
 <br/>

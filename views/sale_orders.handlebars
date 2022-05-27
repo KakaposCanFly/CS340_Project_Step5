@@ -42,8 +42,14 @@
 
 <h3>Add new sale order:</h3>
 <form id="add_sale_order" action="/sale_orders" method="post">
-    <input type="text" id="customer_ID" name="customer_ID" placeholder="Customer ID"><br>
-    <input type="text" id="cc_number" name="cc_number" placeholder="Credit Card Number"><br>
+    {{!-- <input type="text" id="customer_ID" name="customer_ID" placeholder="Customer ID"><br> --}}
+    Customer: <select name="customer_ID">
+        {{#each customers}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    <label for="cc_number">Credit Card:</label>
+    <input type="text" id="cc_number" name="cc_number" placeholder="Credit Card #"><br>
     <label for="order_date">Order Date:</label>
     <input type="date" id="order_date" name="order_date" placeholder="YYYY-MM-DD"><br>
     <label for="bdate">Credit Card Expiration Date:</label>

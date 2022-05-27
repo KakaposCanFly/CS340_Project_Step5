@@ -2,13 +2,13 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getPlanets(res, mysql, context, complete){
-        mysql.pool.query("SELECT planet_id as id, name FROM bsg_planets", function(error, results, fields){
+    function getDistributors(res, mysql, context, complete){
+        mysql.pool.query("SELECT distributor_ID as id, distributor_name as name FROM distributors", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.planets  = results;
+            context.distributors  = results;
             complete();
         });
     }
@@ -75,7 +75,7 @@ module.exports = function(){
         context.jsscripts = ["deleteproduct.js"];
         var mysql = req.app.get('mysql');
         getProducts(res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getDistributors(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -92,7 +92,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeoplebyHomeworld(req,res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getDistributors(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -109,7 +109,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeopleWithNameLike(req, res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getDistributors(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -126,7 +126,7 @@ module.exports = function(){
         context.jsscripts = ["updateproduct.js"];
         var mysql = req.app.get('mysql');
         getProduct(res, mysql, context, req.params.id, complete);
-        getPlanets(res, mysql, context, complete);
+        getDistributors(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -139,7 +139,6 @@ module.exports = function(){
     /* Adds a person, redirects to the people page after adding */
 
     router.post('/', function(req, res){
-        console.log(req.body.homeworld)
         console.log(req.body)
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO products (product_type, product_name, distributor_ID, retail_price, release_date, quant_in_stock) VALUES (?,?,?,?,?,?)";

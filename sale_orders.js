@@ -2,13 +2,13 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getPlanets(res, mysql, context, complete){
-        mysql.pool.query("SELECT planet_id as id, name FROM bsg_planets", function(error, results, fields){
+    function getCustomers(res, mysql, context, complete){
+        mysql.pool.query("SELECT customer_ID as id, customer_first_name as name FROM customers", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.planets  = results;
+            context.customers  = results;
             complete();
         });
     }
@@ -75,7 +75,7 @@ module.exports = function(){
         context.jsscripts = ["deletesale_order.js"];
         var mysql = req.app.get('mysql');
         getSaleOrders(res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getCustomers(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -92,7 +92,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeoplebyHomeworld(req,res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getCustomers(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -109,7 +109,7 @@ module.exports = function(){
         context.jsscripts = ["deleteperson.js","filterpeople.js","searchpeople.js"];
         var mysql = req.app.get('mysql');
         getPeopleWithNameLike(req, res, mysql, context, complete);
-        getPlanets(res, mysql, context, complete);
+        getCustomers(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
@@ -126,7 +126,7 @@ module.exports = function(){
         context.jsscripts = ["updatesale_order.js"];
         var mysql = req.app.get('mysql');
         getSale_Order(res, mysql, context, req.params.id, complete);
-        getPlanets(res, mysql, context, complete);
+        getCustomers(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
