@@ -24,17 +24,6 @@ module.exports = function(){
         });
     }
     
-     function getSaleOrderProductsID(res, mysql, context, complete){
-        mysql.pool.query("SELECT *, row_number() over(order by id) as serial FROM sale_order_products", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.people = results;
-            complete();
-        });
-    }
-
     function getPeoplebyHomeworld(req, res, mysql, context, complete){
       var query = "SELECT bsg_people.character_id as id, fname, lname, bsg_planets.name AS homeworld, age FROM bsg_people INNER JOIN bsg_planets ON homeworld = bsg_planets.planet_id WHERE bsg_people.homeworld = ?";
       console.log(req.params)
@@ -86,7 +75,6 @@ module.exports = function(){
         context.jsscripts = ["deletesale_order_product.js"];
         var mysql = req.app.get('mysql');
         getSaleOrderProducts(res, mysql, context, complete);
-        getSaleOrderProductsID(res, mysql, context, complete);
         getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;
