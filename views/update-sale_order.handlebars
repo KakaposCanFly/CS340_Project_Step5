@@ -1,0 +1,12 @@
+<html>
+<h1>Update Sale Order {{sale_order.order_number}}:</h1>
+<form id="update-sale_order" action="/sale_orders" method="post">
+    Customer ID: <input type="text" name="customer_ID" value="{{sale_order.customer_ID}}"><br>
+    Order Date: <input type="date" name="order_date" value="{{sale_order.order_date}}"><br>
+    Credit Card #: <input type="text" name="cc_number" value="{{sale_order.cc_number}}"><br>
+    Credit Card Expiration Date: <input type="date" name="cc_exp_date" value="{{sale_order.cc_exp_date}}"><br>
+    Delivery Status: <input type="text" name="delivery_status" value="{{sale_order.delivery_status}}"><br>
+    Paid Status: <input type="text" name="paid_status" value="{{sale_order.paid_status}}"><br>
+</form>
+<button onclick="updateSale_Orders({{sale_order.order_number}})">Update</button>
+</html>

@@ -54,15 +54,15 @@ module.exports = function(){
         });
     }
 
-    function getPerson(res, mysql, context, id, complete){
-        var sql = "SELECT character_id as id, fname, lname, homeworld, age FROM bsg_people WHERE character_id = ?";
+    function getSale_Order(res, mysql, context, id, complete){
+        var sql = "SELECT * FROM sale_orders WHERE order_number = ?";
         var inserts = [id];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.person = results[0];
+            context.sale_order = results[0];
             complete();
         });
     }
@@ -123,14 +123,14 @@ module.exports = function(){
     router.get('/:id', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["selectedplanet.js", "updateperson.js"];
+        context.jsscripts = ["updatesale_order.js"];
         var mysql = req.app.get('mysql');
-        getPerson(res, mysql, context, req.params.id, complete);
+        getSale_Order(res, mysql, context, req.params.id, complete);
         getPlanets(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('update-person', context);
+                res.render('update-sale_order', context);
             }
 
         }
@@ -161,8 +161,8 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         console.log(req.params.id)
-        var sql = "UPDATE bsg_people SET fname=?, lname=?, homeworld=?, age=? WHERE character_id=?";
-        var inserts = [req.body.fname, req.body.lname, req.body.homeworld, req.body.age, req.params.id];
+        var sql = "UPDATE sale_orders SET customer_ID=?, order_date=?, cc_number=?, cc_exp_date=?, delivery_status=?, paid_status=? WHERE order_number=?";
+        var inserts = [req.body.customer_ID, req.body.order_date, req.body.cc_number, req.body.cc_exp_date, req.body.delivery_status, req.body.paid_status, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
