@@ -65,15 +65,15 @@ module.exports = function(){
         });
     }
 
-    function getPerson(res, mysql, context, id, complete){
-        var sql = "SELECT character_id as id, fname, lname, homeworld, age FROM bsg_people WHERE character_id = ?";
-        var inserts = [id];
+    function getSale_Order_Product(res, mysql, context, ordnum, pid, complete){
+        var sql = "SELECT * FROM sale_order_products WHERE order_number=? AND product_ID=?";
+        var inserts = [ordnum, pid];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.person = results[0];
+            context.sale_order_product = results[0];
             complete();
         });
     }
@@ -132,17 +132,18 @@ module.exports = function(){
 
     /* Display one person for the specific purpose of updating people */
 
-    router.get('/:id', function(req, res){
+    router.get('/ordnum/:ordnum/pid/:pid', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["selectedplanet.js", "updateperson.js"];
+        context.jsscripts = ["updatesale_order_product.js"];
         var mysql = req.app.get('mysql');
-        getPerson(res, mysql, context, req.params.id, complete);
+        getSale_Order_Product(res, mysql, context, req.params.ordnum, req.params.pid, complete);
         getSale_Orders(res, mysql, context, complete);
+        getProducts(res, mysql, context, complete);
         function complete(){
             callbackCount++;
-            if(callbackCount >= 2){
-                res.render('update-person', context);
+            if(callbackCount >= 3){
+                res.render('update-sale_order_product', context);
             }
 
         }
