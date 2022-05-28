@@ -1,7 +1,12 @@
 <html>
 <h1>Update Sale Order {{sale_order.order_number}}:</h1>
 <form id="update-sale_order" action="/sale_orders" method="post">
-    Customer ID: <input type="text" name="customer_ID" value="{{sale_order.customer_ID}}"><br>
+    {{!-- Customer ID: <input type="text" name="customer_ID" value="{{sale_order.customer_ID}}"><br> --}}
+    Customer: <select name="customer_ID" id="customer-selector">
+        {{#each customers}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
     Order Date: <input type="date" name="order_date" value="{{sale_order.order_date}}"><br>
     Credit Card #: <input type="text" name="cc_number" value="{{sale_order.cc_number}}"><br>
     Credit Card Expiration Date: <input type="date" name="cc_exp_date" value="{{sale_order.cc_exp_date}}"><br>
