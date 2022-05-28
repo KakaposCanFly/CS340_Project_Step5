@@ -1,5 +1,4 @@
 function updateProducts(id){
-    console.log("Entered update function");
     $.ajax({
         url: '/products/' + id,
         type: 'PUT',

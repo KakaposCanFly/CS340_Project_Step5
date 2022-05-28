@@ -124,7 +124,7 @@ module.exports = function(){
     router.get('/:id', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["updateproduct.js"];
+        context.jsscripts = ["selectedDistributor.js", "updateproduct.js"];
         var mysql = req.app.get('mysql');
         getProduct(res, mysql, context, req.params.id, complete);
         getDistributors(res, mysql, context, complete);
