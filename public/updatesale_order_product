@@ -1,4 +1,4 @@
-function updateSale_Order_Product(ordnum, pid){
+function updateSale_Order_Products(ordnum, pid){
     $.ajax({
         url: '/sale_order_products/ordnum/' + ordnum + "/pid/" + pid,
         type: 'PUT',
