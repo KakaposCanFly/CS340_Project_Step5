@@ -3,10 +3,16 @@
 <form id="update-product" action="/products" method="post">
     Type: <input type="text" name="product_type" value="{{product.product_type}}"><br>
     Name: <input type="text" name="product_name" value="{{product.product_name}}"><br>
-    Distributor ID: <input type="text" name="distributor_ID" value="{{product.distributor_ID}}"><br>
+    {{!-- Distributor ID: <input type="text" name="distributor_ID" value="{{product.distributor_ID}}"><br> --}}
+    Distributor: <select name="distributor_ID" id="distributor-selector">
+        {{#each distributors}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
     Retail Price: <input type="text" name="retail_price" value="{{product.retail_price}}"><br>
     Release Date: <input type="date" name="release_date" value="{{product.release_date}}"><br>
     Stock Quantity: <input type="text" name="quant_in_stock" value="{{product.quant_in_stock}}"><br>
 </form>
 <button onclick="updateProducts({{product.product_ID}})">Update</button>
+<script defer>selectDistributor({{product.distributor_ID}});</script>
 </html>

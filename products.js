@@ -54,6 +54,7 @@ module.exports = function(){
         });
     }
 
+    //Used for updating
     function getProduct(res, mysql, context, id, complete){
         var sql = "SELECT * FROM products WHERE product_ID = ?";
         var inserts = [id];
