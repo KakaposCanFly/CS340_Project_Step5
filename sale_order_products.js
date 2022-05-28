@@ -169,12 +169,12 @@ module.exports = function(){
 
     /* The URI that update data is sent to in order to update a person */
 
-    router.put('/:id', function(req, res){
+    router.put('/ordnum/:ordnum/pid/:pid', function(req, res){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         console.log(req.params.id)
-        var sql = "UPDATE bsg_people SET fname=?, lname=?, homeworld=?, age=? WHERE character_id=?";
-        var inserts = [req.body.fname, req.body.lname, req.body.homeworld, req.body.age, req.params.id];
+        var sql = "UPDATE sale_order_products SET order_number=?, product_ID=?, quantity=?, selling_price=?, shipping_status=?, shipping_date=? WHERE order_number=? AND product_ID=?";
+        var inserts = [req.body.order_number, req.body.product_ID, req.body.quantity, req.body.selling_price, req.body.shipping_status, req.body.shipping_date, req.params.ordnum, req.params.pid];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
