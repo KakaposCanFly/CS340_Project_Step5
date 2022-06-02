@@ -4,6 +4,7 @@
 {{/each}}
 
 <link href="styles.css" rel="stylesheet" type="text/css" />
+{{!-- Header and nav bar for distributor page --}}
 <h1>Quality Threads</h1>
 <div class="topnav">
     <li><a class="active" href="index.html">Home</a></li>
@@ -16,6 +17,7 @@
 
 <h3>Distributors</h3>
 <table>
+    {{!-- column headers for the database --}}
     <thead> 
         <th>distributor_ID</th>
         <th>distributor_name</th> 
@@ -25,6 +27,7 @@
         <th>distributor_contact_person</th>  
     </thead> 
     <tbody>
+    {{!-- used to get the database and populate appropriate columns --}}
         {{#each distributors}} 
         <tr> 
             <td>{{distributor_ID}}</td>
@@ -40,7 +43,7 @@
     </tbody> 
 </table>
 
-
+{{!-- input fields when adding new distributor --}}
 <h3> Add new distributor: </h3>
 <form id="add_distributor" action="/distributors" method="post">
     <input type="text" id="dname" name="distributor_name" placeholder="Distributor Name"><br>
