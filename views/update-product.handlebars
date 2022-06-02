@@ -2,9 +2,9 @@
 <link href="/styles.css" rel="stylesheet" type="text/css" />
 <h1>Update {{product.product_type}}:</h1>
 <form id="update-product" action="/products" method="post">
+    {{!-- Pre-populate the input fields with the attributes' current values --}}
     Type: <input type="text" name="product_type" value="{{product.product_type}}"><br>
     Name: <input type="text" name="product_name" value="{{product.product_name}}"><br>
-    {{!-- Distributor ID: <input type="text" name="distributor_ID" value="{{product.distributor_ID}}"><br> --}}
     Distributor: <select name="distributor_ID" id="distributor-selector">
         {{#each distributors}}
         <option value="{{id}}">{{name}}</option>

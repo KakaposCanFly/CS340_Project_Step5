@@ -2,6 +2,7 @@
 <link href="/styles.css" rel="stylesheet" type="text/css" />
 <h1>Update {{distributor.distributor_name}}:</h1>
 <form id="update-distributor" action="/distributors" method="post">
+    {{!-- Pre-populate the input fields with the attributes' current values --}}
     Name: <input type="text" name="distributor_name" value="{{distributor.distributor_name}}"><br>
     Address: <input type="text" name="distributor_address" value="{{distributor.distributor_address}}"><br>
     Email: <input type="text" name="distributor_email" value="{{distributor.distributor_email}}"><br>
