@@ -4,6 +4,7 @@
 {{/each}}
 
 <link href="styles.css" rel="stylesheet" type="text/css" />
+{{!-- Header and nav bar for sale order products page --}}
 <h1>Quality Threads</h1>
 <div class="topnav">
     <li><a class="active" href="index.html">Home</a></li>
@@ -16,6 +17,7 @@
 
 <h3>Sale Order Products</h3>
 <table>
+    {{!-- column headers for the database --}}
     <thead> 
         <th>order_number</th> 
         <th>product_ID</th> 
@@ -33,6 +35,8 @@
             <td>{{selling_price}}</td> 
             <td>{{shipping_status}}</td>
             <td>{{shipping_date}}</td>
+            
+            {{!-- connects to js files to make delete and update work --}}
             <td><button onclick="deleteSale_Order_Product({{order_number}},{{product_ID}})">Delete</button></td>
             <td><a href="/sale_order_products/ordnum/{{order_number}}/pid/{{product_ID}}">Update</a></td>
         </tr> 
@@ -40,6 +44,7 @@
     </tbody> 
 </table> 
 
+{{!-- pulls information from sale orders and products database to add new item to this database--}}
 <h3>Add new sale order product</h3>
 <form id="add_sale_order_product" action="/sale_order_products" method="post">
     {{!-- <input type="text" id="order_number" name="order_number" placeholder="Order Number"><br>    --}}
