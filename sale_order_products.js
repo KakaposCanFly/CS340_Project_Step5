@@ -135,7 +135,7 @@ module.exports = function(){
     router.get('/ordnum/:ordnum/pid/:pid', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["updatesale_order_product.js"];
+        context.jsscripts = ["selectedSale_Order.js", "selectedProduct.js", "updatesale_order_product.js"];
         var mysql = req.app.get('mysql');
         getSale_Order_Product(res, mysql, context, req.params.ordnum, req.params.pid, complete);
         getSale_Orders(res, mysql, context, complete);
