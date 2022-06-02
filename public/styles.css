@@ -71,10 +71,10 @@ html, body {
     line-height: 2;
 }
     
-  .nav {
+  nav {
    list-style: none;
    text-align: center;
 }
-  .nav li {
+  nav li {
    display: inline-block;
 }
