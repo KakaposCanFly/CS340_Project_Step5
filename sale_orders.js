@@ -123,7 +123,7 @@ module.exports = function(){
     router.get('/:id', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["selectedCustomer.js", "updatesale_order.js"];
+        context.jsscripts = ["selectedCustomer.js", "selectedDelivery_Status.js", "selectedPaid_Status.js", "updatesale_order.js"];
         var mysql = req.app.get('mysql');
         getSale_Order(res, mysql, context, req.params.id, complete);
         getCustomers(res, mysql, context, complete);
