@@ -3,6 +3,7 @@
 {{this}}
 {{/each}}
 <link href="styles.css" rel="stylesheet" type="text/css" />
+{{!-- Header and nav bar for product page --}}
 <h1>Quality Threads</h1>
 <div class="topnav">
     <li><a class="active" href="index.html">Home</a></li>
@@ -15,6 +16,7 @@
 
 <h3>Products</h3>
 <table>
+    {{!-- column headers for the database --}}
     <thead> 
         <th>product_ID</th> 
         <th>product_type</th> 
@@ -34,13 +36,17 @@
             <td>{{retail_price}}</td>
             <td>{{release_date}}</td>
             <td>{{quant_in_stock}}</td>
+            
+            {{!-- connects to js files to make delete and update work --}}
             <td><button onclick="deleteProduct({{product_ID}})">Delete</button></td>
             <td><a href="/products/{{product_ID}}">Update</a></td>
         </tr> 
         {{/each}} 
-    </tbody> 
+    </tbody>
+    {{!-- used to get the database and populate appropriate columns --}}
 </table> 
 
+{{!-- input fields when adding new product --}}
 <h3>Add new product:</h3>
 <form id="add_product" action="/products" method="post">
     <input type="text" id="product_type" name="product_type" placeholder="Product type"><br>
