@@ -1,3 +1,4 @@
+/* used to style the background as well as the body of our pages */
 html, body {
     width: 100%;
     height: 100%;
@@ -6,6 +7,7 @@ html, body {
     margin: 0;
     /* background: red; */
   }
+/* styling for all database tables shown on site */
   table {
     display: table;
     border-collapse: separate;
@@ -13,12 +15,13 @@ html, body {
     border-color: gray;
     white-space: nowrap;
   }
+/* additional styling for tables */
   th, td{
     border: 1px solid;
     max-width: 100%;
     padding:5px
   }
-  
+/* color and padding for navigation bar */
   .topnav {
     padding:0;  
     background:black;
@@ -39,23 +42,20 @@ html, body {
     background-color: #A1DBB2;
     color:black; 
   }
-
+/* styling for all input types that are texts */
   input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
   }
 
-  input[type=date] {
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
+/* styling for all input types that are dates */
    input[type=date] {
    padding: 12px 20px;
    margin: 8px 0;
    box-sizing: border-box;
 }
+/* styling for all input types that are numbers */
    input[type=number] {
    padding: 12px 20px;
    margin: 8px 0;
@@ -66,15 +66,17 @@ html, body {
    margin: 8px 0;
    box-sizing: border-box;
 }
+/* styles the font */
   p{
     font-size: 14px;
     line-height: 2;
 }
-    
+/* aligns nav bar contents to be centered */   
   nav {
    list-style: none;
    text-align: center;
 }
+
   nav li {
    display: inline-block;
 }
