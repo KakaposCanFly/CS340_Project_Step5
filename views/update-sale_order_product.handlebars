@@ -22,6 +22,7 @@
       </select><br>
     <label for="shipping_date">Shipping Date:</label>
     <input type="date" id="shipping_date" name="shipping_date" value="{{sale_order_product.shipping_date}}"><br>
+    <p> Please re-enter the date before submission </p>
  </form>
 <button onclick="updateSale_Order_Products({{sale_order_product.order_number}},{{sale_order_product.product_ID}})">Update</button>
 <script defer>selectSale_Order({{sale_order_product.order_number}});</script>
