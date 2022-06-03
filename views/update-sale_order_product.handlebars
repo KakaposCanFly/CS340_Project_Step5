@@ -3,14 +3,15 @@
 <h1>Update Sale Order {{sale_order_product.order_number}} Product {{sale_order_product.product_ID}}:</h1>
 <form id="update-sale_order_product" action="/sale_order_products" method="post">
     {{!-- Pre-populate the input fields with the attributes' current values --}}
+    Note: Do not enter combinations of Order Number and Product ID that already exist in the table<br><br>
     Order Number: <select name="order_number" id="sale_order-selector">
         {{#each sale_orders}}
         <option value="{{order_number}}">{{order_number}}</option>
         {{/each}}
     </select><br>
-    Product: <select name="product_ID" id="product-selector">
+    Product ID: <select name="product_ID" id="product-selector">
         {{#each products}}
-        <option value="{{id}}">{{name}}</option>
+        <option value="{{id}}">{{id}}</option>
         {{/each}}
     </select><br>
     <input type="text" id="quantity" name="quantity" value="{{sale_order_product.quantity}}"><br>

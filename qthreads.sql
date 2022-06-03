@@ -72,10 +72,10 @@ INSERT INTO distributors (distributor_ID, distributor_name, distributor_address,
     ('3','Bailey''s Rings','2934 SW Morris Drive','ringmyphone@snazzy.com','5039400029','Rick');
 
 INSERT INTO products (product_ID,product_type,product_name,distributor_ID,retail_price,release_date,quant_in_stock) VALUES 
-    ('1','shoes','Raf''s Godly Kicks','02496','419.99','1990/04/26','1'),
-    ('2','t-shirt','Standard Long Sleeve','02092','	11.99','1990/04/26','119'),
-    ('3','hat','Magician''s Tophat','04446','49.99','1990/04/26','7'),
-    ('4','poncho','Unparalleled Comfort','	03002','79.99','1990/04/26','22');
+    ('1','shoes','Raf''s Godly Kicks','1','419.99','1990/04/26','1'),
+    ('2','t-shirt','Standard Long Sleeve','2','	11.99','1990/04/26','119'),
+    ('3','hat','Magician''s Tophat','3','49.99','1990/04/26','7'),
+    ('4','poncho','Unparalleled Comfort','2 ','79.99','1990/04/26','22');
 
 INSERT INTO sale_orders(order_number, customer_ID, order_date, cc_number, cc_exp_date, delivery_status, paid_status) VALUES 
     ('1','1','1984/01/19','12982918478729781','1990/04/15','Delivered', 'Paid'),
