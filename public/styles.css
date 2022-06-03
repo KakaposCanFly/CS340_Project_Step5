@@ -80,3 +80,6 @@ html, body {
   nav li {
    display: inline-block;
 }
+  .entry-title{
+      padding-top: 30px;
+}
