@@ -4,4 +4,3 @@ This draft webpage requires the database dump **qthreads.sql** to be setup *befo
 
 Once the qthreads.sql database is setup, run `npm install` and `node main.js {port number}` on flipX, and use the URL: `https://flipX.engr.oregonstate.edu:{port number}` to open with the webpage.
 
-The READ and CREATE functionalities are implemented on all entity pages. 
