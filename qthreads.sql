@@ -67,9 +67,9 @@ INSERT INTO customers (customer_ID, customer_first_name, customer_last_name, cus
     ('4','Rachael','Breats','breats@iliketoshop.net','5039475425','new jersey','1984/01/19');
 
 INSERT INTO distributors (distributor_ID, distributor_name, distributor_address, distributor_email, distributor_phone, distributor_contact_person) VALUES 
-    ('1','Raf''s Drip','nebraska','sweetkicks@evangelizeddd.com','5039475829','Josh'),
-    ('2','Mike''s Shirts','washington','mikesshirts@quantity.net','5039412329','Mike'),
-    ('3','Bailey''s Rings','new york','ringmyphone@snazzy.com','5039400029','Rick');
+    ('1','Raf''s Drip','2835 SE Hawthorne Lane','sweetkicks@evangelizeddd.com','5039475829','Josh'),
+    ('2','Mike''s Shirts','2384 NW Maybell Street','mikesshirts@quantity.net','5039412329','Mike'),
+    ('3','Bailey''s Rings','2934 SW Morris Drive','ringmyphone@snazzy.com','5039400029','Rick');
 
 INSERT INTO products (product_ID,product_type,product_name,distributor_ID,retail_price,release_date,quant_in_stock) VALUES 
     ('1','shoes','Raf''s Godly Kicks','02496','419.99','1990/04/26','1'),
