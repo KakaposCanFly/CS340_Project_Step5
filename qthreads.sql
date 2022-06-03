@@ -61,10 +61,10 @@ CREATE TABLE `sale_order_products` (
 --          INSERT QUERIES
 -- ##############################
 INSERT INTO customers (customer_ID, customer_first_name, customer_last_name, customer_email, customer_phone_number, customer_address, customer_birthdate) VALUES 
-    ('1','George','Immler','immler@massivehats.net','5039475829','ohio','1990/04/26'),
-    ('2','June','Elizabeth','elizabeth@greenthumb.net','5039412329','portland','1987/02/15'),
-    ('3','Harold','Shwab','gigachad@hidethepainharold.gov','5039400029','ohio','1990/04/26'),
-    ('4','Rachael','Breats','breats@iliketoshop.net','5039475425','new jersey','1984/01/19');
+    ('1','George','Immler','immler@massivehats.net','5039475829','505 SE Janson Ln.','1990/04/26'),
+    ('2','June','Elizabeth','elizabeth@greenthumb.net','5039412329','1012 NE Alby Blvd.','1987/02/15'),
+    ('3','Harold','Shwab','gigachad@hidethepainharold.gov','5039400029','707 SW Bora Ln.','1990/04/26'),
+    ('4','Rachael','Breats','breats@iliketoshop.net','5039475425','209 NW Harrison Blvd.','1984/01/19');
 
 INSERT INTO distributors (distributor_ID, distributor_name, distributor_address, distributor_email, distributor_phone, distributor_contact_person) VALUES 
     ('1','Raf''s Drip','nebraska','sweetkicks@evangelizeddd.com','5039475829','Josh'),
