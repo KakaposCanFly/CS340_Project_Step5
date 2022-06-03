@@ -66,8 +66,8 @@ module.exports = function(){
         console.log(req.body.homeworld)
         console.log(req.body)
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO distributors (distributor_name, distributor_address, distributor_email, distributor_phone, distributor_contact_distributor) VALUES (?,?,?,?,?)";      //Make SQL query with '?' placeholders
-        var inserts = [req.body.distributor_name, req.body.distributor_address, req.body.distributor_email, req.body.distributor_phone, req.body.distributor_contact_distributor];   //Fill array to replace '?' in the SQL query
+        var sql = "INSERT INTO distributors (distributor_name, distributor_address, distributor_email, distributor_phone, distributor_contact_person) VALUES (?,?,?,?,?)";      //Make SQL query with '?' placeholders
+        var inserts = [req.body.distributor_name, req.body.distributor_address, req.body.distributor_email, req.body.distributor_phone, req.body.distributor_contact_person];   //Fill array to replace '?' in the SQL query
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){    //Make SQL query with inserts
             if(error){
                 console.log(JSON.stringify(error))
@@ -84,8 +84,8 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         console.log(req.params.id)
-        var sql = "UPDATE distributors SET distributor_name=?, distributor_address=?, distributor_email=?, distributor_phone=?, distributor_contact_distributor=? WHERE distributor_ID=?";       //Make SQL query with '?' placeholders
-        var inserts = [req.body.distributor_name, req.body.distributor_address, req.body.distributor_email, req.body.distributor_phone, req.body.distributor_contact_distributor, req.params.id];//Fill array to replace '?' in the SQL query
+        var sql = "UPDATE distributors SET distributor_name=?, distributor_address=?, distributor_email=?, distributor_phone=?, distributor_contact_person=? WHERE distributor_ID=?";       //Make SQL query with '?' placeholders
+        var inserts = [req.body.distributor_name, req.body.distributor_address, req.body.distributor_email, req.body.distributor_phone, req.body.distributor_contact_person, req.params.id];//Fill array to replace '?' in the SQL query
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){    //Make SQL query with inserts
             if(error){
                 console.log(error)

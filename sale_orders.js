@@ -80,8 +80,8 @@ module.exports = function(){
         console.log(req.body.homeworld)
         console.log(req.body)
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO sale_orders (customer_ID, cc_number, cc_exp_date, delivery_status, paid_status) VALUES (?,?,?,?,?)";     //Make SQL query with '?' placeholders
-        var inserts = [req.body.customer_ID, req.body.cc_number, req.body.cc_exp_date, req.body.delivery_status, req.body.paid_status];     //Fill array to replace '?' in the SQL query
+        var sql = "INSERT INTO sale_orders (customer_ID, order_date, cc_number, cc_exp_date, delivery_status, paid_status) VALUES (?,?,?,?,?,?)";     //Make SQL query with '?' placeholders
+        var inserts = [req.body.customer_ID, req.body.order_date, req.body.cc_number, req.body.cc_exp_date, req.body.delivery_status, req.body.paid_status];     //Fill array to replace '?' in the SQL query
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){    //Make SQL query with inserts
             if(error){
                 console.log(JSON.stringify(error))
